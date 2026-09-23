@@ -2,7 +2,8 @@
 <html lang="el">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAF8F5">
 <title>GALORE — Brows &amp; Lashes Studio</title>
 <meta name="description" content="Εξειδικευμένες υπηρεσίες περιποίησης και ομορφιάς για κάθε σας ανάγκη.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +15,18 @@
   --text:#2A2523; --text-muted:#6B7280; --line:#E9E3DD; --radius:14px; --radius-lg:28px; --pill:999px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);background:var(--bg);line-height:1.55}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);background:var(--bg);line-height:1.55}
+button,a,[role="button"]{touch-action:manipulation}
+.btn,.tab,.slot,.nav-toggle,.dialog-close{user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.btn:active,.tab:active,.slot:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){
+  .btn-outline:hover,.btn-fill:hover{opacity:.9}
+  .main-nav a:not(.btn):hover{color:var(--maroon)}
+  .subnav a:hover{color:var(--maroon)}
+  footer a:hover{color:var(--maroon)}
+  .team-card .book-link:hover{opacity:.8}
+}
 h1,h2,h3{font-family:inherit;color:var(--maroon);margin:0;font-weight:800}
 h1{font-size:clamp(30px,4.4vw,44px);line-height:1.05}
 h2{font-size:clamp(24px,3.2vw,32px)}
@@ -27,7 +38,6 @@ a{color:inherit;text-decoration:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:var(--pill);font-weight:700;font-size:13.5px;border:1px solid transparent;cursor:pointer;white-space:nowrap}
 .btn-fill{background:var(--maroon);color:#fff}
 .btn-outline{background:#fff;color:var(--maroon);border-color:var(--line)}
-.btn-outline:hover,.btn-fill:hover{opacity:.9}
 .btn-sm{padding:8px 16px;font-size:12.5px}
 
 /* header */
@@ -35,7 +45,6 @@ a{color:inherit;text-decoration:none}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:21px;font-weight:800;color:var(--maroon);letter-spacing:.02em;text-transform:lowercase}
 .main-nav{display:flex;align-items:center;gap:26px;font-weight:600;font-size:14px}
-.main-nav a:not(.btn):hover{color:var(--maroon)}
 .nav-toggle{display:none;background:none;border:none;font-size:22px;color:var(--maroon);cursor:pointer}
 @media (max-width:860px){
   .main-nav{position:fixed;inset:60px 16px auto 16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);flex-direction:column;align-items:flex-start;padding:18px;gap:14px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:.2s ease;z-index:60}
@@ -46,6 +55,7 @@ a{color:inherit;text-decoration:none}
 /* hero */
 .hero-wrap{padding-bottom:36px}
 .hero-card{background:var(--card);border-radius:var(--radius-lg);box-shadow:0 30px 60px -20px rgba(68,11,11,.15);padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media (max-width:720px){.hero-card{grid-template-columns:1fr;padding:24px;border-radius:20px}.hero-collage{height:220px}}
 .hero-desc{font-size:15.5px;color:var(--text-muted);max-width:420px}
 .hero-meta{display:flex;flex-wrap:wrap;gap:14px 20px;margin:16px 0;font-size:13px;color:var(--text-muted)}
 .hero-meta span{display:inline-flex;align-items:center;gap:6px}
@@ -61,7 +71,6 @@ a{color:inherit;text-decoration:none}
 /* subnav */
 .subnav{border-bottom:1px solid var(--line)}
 .subnav .wrap{display:flex;gap:26px;overflow-x:auto;padding:14px 24px;font-size:13.5px;font-weight:600;color:var(--text-muted)}
-.subnav a:hover{color:var(--maroon)}
 
 section{padding:56px 0}
 .section-head{max-width:600px;margin-bottom:28px}
@@ -122,26 +131,25 @@ footer{border-top:1px solid var(--line);padding:48px 0 24px}
 @media (max-width:700px){.footer-grid{grid-template-columns:1fr}}
 footer h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--slate);margin-bottom:14px}
 footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:13.5px;color:var(--text-muted)}
-footer a:hover{color:var(--maroon)}
 .footer-bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:18px;font-size:12.5px;color:var(--text-muted)}
 
 /* booking dialog */
-dialog#bookingDialog{position:relative;border:none;border-radius:20px;padding:0;width:min(540px,92vw);max-height:88vh;box-shadow:0 20px 60px rgba(68,11,11,.25)}
+dialog#bookingDialog{position:relative;border:none;border-radius:20px;padding:0;width:min(540px,92vw);max-height:88dvh;box-shadow:0 20px 60px rgba(68,11,11,.25)}
 dialog#bookingDialog::backdrop{background:rgba(42,37,35,.55)}
-.booking-form{display:flex;flex-direction:column;max-height:88vh;margin:0}
+.booking-form{display:flex;flex-direction:column;max-height:88dvh;margin:0}
 .dialog-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;color:var(--text-muted);cursor:pointer;line-height:1}
 .booking-steps{display:flex;gap:4px;flex-wrap:wrap;padding:22px 26px 0;font-size:10.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.03em}
 .booking-steps .step{padding:6px 10px;border-radius:var(--pill);background:var(--bg)}
 .booking-steps .step.active{background:var(--maroon);color:#fff}
-.booking-panel{padding:20px 26px;overflow-y:auto}
+.booking-panel{padding:20px 26px;overflow-y:auto;overscroll-behavior:contain}
 .booking-panel h3{margin-bottom:14px;font-size:18px;color:var(--maroon)}
-.booking-service-list{display:flex;flex-direction:column;gap:8px;max-height:340px;overflow-y:auto}
+.booking-service-list{display:flex;flex-direction:column;gap:8px;max-height:340px;overflow-y:auto;overscroll-behavior:contain}
 .service-pick{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:var(--radius);padding:10px 14px;cursor:pointer;font-size:13.5px}
 .service-pick:has(input:checked){border-color:var(--maroon);background:#FBF3F0}
 .service-pick span:first-of-type{flex:1}
 .service-pick-meta{color:var(--text-muted);font-size:12px;white-space:nowrap}
 .field-label{display:flex;flex-direction:column;gap:6px;font-size:12.5px;font-weight:700;color:var(--maroon);margin-bottom:14px}
-.field-label input,.field-label textarea{font-family:inherit;font-size:14px;font-weight:500;color:var(--text);padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.field-label input,.field-label textarea{font-family:inherit;font-size:16px;font-weight:500;color:var(--text);padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff}
 .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
 @media (max-width:480px){.field-grid{grid-template-columns:1fr}}
 .time-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:8px;margin-top:14px}
