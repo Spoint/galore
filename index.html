@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GALORE — Brows &amp; Lashes Studio</title>
+<meta name="description" content="Εξειδικευμένες υπηρεσίες περιποίησης και ομορφιάς για κάθε σας ανάγκη.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon:#440B0B; --slate:#7C85A3; --bg:#FAF8F5; --card:#FFFFFF;
+  --text:#2A2523; --text-muted:#6B7280; --line:#E9E3DD; --radius:14px; --radius-lg:28px; --pill:999px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);background:var(--bg);line-height:1.55}
+h1,h2,h3{font-family:inherit;color:var(--maroon);margin:0;font-weight:800}
+h1{font-size:clamp(30px,4.4vw,44px);line-height:1.05}
+h2{font-size:clamp(24px,3.2vw,32px)}
+h3{font-size:16px;font-weight:700;color:var(--text)}
+p{margin:0 0 10px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.eyebrow{letter-spacing:.1em;text-transform:uppercase;font-size:11px;font-weight:700;color:var(--slate);margin-bottom:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:var(--pill);font-weight:700;font-size:13.5px;border:1px solid transparent;cursor:pointer;white-space:nowrap}
+.btn-fill{background:var(--maroon);color:#fff}
+.btn-outline{background:#fff;color:var(--maroon);border-color:var(--line)}
+.btn-outline:hover,.btn-fill:hover{opacity:.9}
+.btn-sm{padding:8px 16px;font-size:12.5px}
+
+/* header */
+.site-header{padding:18px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:21px;font-weight:800;color:var(--maroon);letter-spacing:.02em;text-transform:lowercase}
+.main-nav{display:flex;align-items:center;gap:26px;font-weight:600;font-size:14px}
+.main-nav a:not(.btn):hover{color:var(--maroon)}
+.nav-toggle{display:none;background:none;border:none;font-size:22px;color:var(--maroon);cursor:pointer}
+@media (max-width:860px){
+  .main-nav{position:fixed;inset:60px 16px auto 16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);flex-direction:column;align-items:flex-start;padding:18px;gap:14px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:.2s ease;z-index:60}
+  .main-nav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .nav-toggle{display:block}
+}
+
+/* hero */
+.hero-wrap{padding-bottom:36px}
+.hero-card{background:var(--card);border-radius:var(--radius-lg);box-shadow:0 30px 60px -20px rgba(68,11,11,.15);padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero-desc{font-size:15.5px;color:var(--text-muted);max-width:420px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:14px 20px;margin:16px 0;font-size:13px;color:var(--text-muted)}
+.hero-meta span{display:inline-flex;align-items:center;gap:6px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.hero-collage{position:relative;display:grid;grid-template-columns:1.3fr 1fr;gap:10px;height:280px}
+.hero-collage .main-ph{position:relative;border-radius:20px}
+.hero-collage .side-col{display:flex;flex-direction:column;gap:10px}
+.hero-collage .side-col .ph{flex:1;border-radius:16px}
+.hero-avatar{position:absolute;left:-14px;bottom:-14px;width:78px;height:78px;border-radius:50%;border:4px solid #fff;background:linear-gradient(135deg,#EDE3DD,#F6EFE8);display:flex;align-items:center;justify-content:center;color:var(--slate);font-weight:800}
+.photo-count{position:absolute;right:10px;bottom:10px;background:#fff;border-radius:var(--pill);padding:5px 12px;font-size:11px;font-weight:700;color:var(--maroon);box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.ph{background:linear-gradient(135deg,#EDE3DD,#F6EFE8);display:flex;align-items:center;justify-content:center;color:var(--slate);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line)}
+
+/* subnav */
+.subnav{border-bottom:1px solid var(--line)}
+.subnav .wrap{display:flex;gap:26px;overflow-x:auto;padding:14px 24px;font-size:13.5px;font-weight:600;color:var(--text-muted)}
+.subnav a:hover{color:var(--maroon)}
+
+section{padding:56px 0}
+.section-head{max-width:600px;margin-bottom:28px}
+
+/* services two-column */
+.services-layout{display:grid;grid-template-columns:1.9fr 1fr;gap:48px;align-items:start}
+@media (max-width:900px){.services-layout{grid-template-columns:1fr}}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.tab{padding:8px 16px;border-radius:var(--pill);border:1px solid var(--line);background:#fff;font-weight:700;font-size:12.5px;cursor:pointer;color:var(--text-muted)}
+.tab.active{background:var(--maroon);border-color:var(--maroon);color:#fff}
+.service-row{padding:20px 0;border-bottom:1px solid var(--line);display:flex;gap:16px;justify-content:space-between}
+.service-row:first-child{padding-top:0}
+.service-info{flex:1;min-width:0}
+.service-row p{color:var(--text-muted);font-size:13.5px;white-space:pre-line}
+.service-row details summary{cursor:pointer;color:var(--maroon);font-weight:700;font-size:12.5px;list-style:none}
+.service-row details summary::-webkit-details-marker{display:none}
+.service-meta{margin-top:8px;font-size:13px;color:var(--text-muted)}
+.service-meta b{color:var(--maroon)}
+.service-row .btn{flex-shrink:0;align-self:flex-start}
+
+.side-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:16px;position:sticky;top:18px}
+.side-card h3{margin-bottom:4px}
+.side-card .rating{font-size:13px;color:var(--text-muted);margin-bottom:14px}
+.side-card .btn{width:100%;margin-bottom:10px}
+.fine-print{font-size:12px;color:var(--text-muted);margin:0}
+.map-ph{height:140px;border-radius:var(--radius);margin-bottom:12px}
+.hours-list{list-style:none;margin:12px 0 0;padding:0}
+.hours-list li{display:flex;justify-content:space-between;padding:8px 0;font-size:13px;border-bottom:1px solid var(--line)}
+.hours-list li:last-child{border-bottom:none}
+.hours-list li b{color:var(--maroon)}
+
+/* team */
+.team-card{display:flex;gap:14px;align-items:center;max-width:340px}
+.avatar-sq{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,#EDE3DD,#F6EFE8);display:flex;align-items:center;justify-content:center;color:var(--slate);font-weight:800;flex-shrink:0}
+.team-card .role{color:var(--text-muted);font-size:13px}
+.team-card .rating{font-size:13px;color:var(--maroon);font-weight:700;margin:4px 0}
+.team-card .book-link{font-size:13px;font-weight:700;color:var(--maroon);text-decoration:underline}
+
+.empty-state{color:var(--text-muted);font-size:14.5px;background:#fff;border:1px dashed var(--line);border-radius:var(--radius);padding:24px;max-width:420px}
+
+/* about */
+.about-text{max-width:680px;font-size:14.5px;color:var(--text-muted)}
+.amenities{display:flex;flex-wrap:wrap;gap:22px;margin-top:22px}
+.amenity{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--text);font-weight:600}
+.amenity .ic{color:var(--slate);font-size:16px}
+
+/* gallery */
+.gallery-group{margin-bottom:36px}
+.gallery-group h3{margin-bottom:12px}
+.gallery-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.gallery-row .ph{height:140px;border-radius:var(--radius)}
+@media (max-width:700px){.gallery-row{grid-template-columns:repeat(2,1fr)}}
+.gallery-caption{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text-muted)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:48px 0 24px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+@media (max-width:700px){.footer-grid{grid-template-columns:1fr}}
+footer h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--slate);margin-bottom:14px}
+footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:13.5px;color:var(--text-muted)}
+footer a:hover{color:var(--maroon)}
+.footer-bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:18px;font-size:12.5px;color:var(--text-muted)}
+
+/* booking dialog */
+dialog#bookingDialog{position:relative;border:none;border-radius:20px;padding:0;width:min(540px,92vw);max-height:88vh;box-shadow:0 20px 60px rgba(68,11,11,.25)}
+dialog#bookingDialog::backdrop{background:rgba(42,37,35,.55)}
+.booking-form{display:flex;flex-direction:column;max-height:88vh;margin:0}
+.dialog-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;color:var(--text-muted);cursor:pointer;line-height:1}
+.booking-steps{display:flex;gap:4px;flex-wrap:wrap;padding:22px 26px 0;font-size:10.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.03em}
+.booking-steps .step{padding:6px 10px;border-radius:var(--pill);background:var(--bg)}
+.booking-steps .step.active{background:var(--maroon);color:#fff}
+.booking-panel{padding:20px 26px;overflow-y:auto}
+.booking-panel h3{margin-bottom:14px;font-size:18px;color:var(--maroon)}
+.booking-service-list{display:flex;flex-direction:column;gap:8px;max-height:340px;overflow-y:auto}
+.service-pick{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:var(--radius);padding:10px 14px;cursor:pointer;font-size:13.5px}
+.service-pick:has(input:checked){border-color:var(--maroon);background:#FBF3F0}
+.service-pick span:first-of-type{flex:1}
+.service-pick-meta{color:var(--text-muted);font-size:12px;white-space:nowrap}
+.field-label{display:flex;flex-direction:column;gap:6px;font-size:12.5px;font-weight:700;color:var(--maroon);margin-bottom:14px}
+.field-label input,.field-label textarea{font-family:inherit;font-size:14px;font-weight:500;color:var(--text);padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+@media (max-width:480px){.field-grid{grid-template-columns:1fr}}
+.time-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:8px;margin-top:14px}
+.slot{padding:9px 6px;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:700;font-size:12.5px;cursor:pointer}
+.slot.active{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+.empty-slots{color:var(--text-muted);font-size:13.5px}
+.summary-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.summary-card p{margin:0 0 8px;font-size:13.5px}
+.summary-price{color:var(--maroon);font-size:15px !important}
+.thank-you{text-align:center;padding:20px 0}
+.booking-actions{display:flex;justify-content:space-between;gap:12px;padding:18px 26px;border-top:1px solid var(--line)}
+.form-error{color:#B3261E;font-size:12.5px;margin:-6px 0 12px}
+</style>
+</head>
+<body>
+
+<header class="site-header"><div class="wrap header-inner">
+  <a class="logo" href="#top">galore</a>
+  <nav class="main-nav" id="mainNav">
+    <a href="#services">Υπηρεσίες</a>
+    <a href="#team">Ομάδα</a>
+    <a href="#location">Τοποθεσία</a>
+    <button type="button" class="btn btn-fill" onclick="openBooking()">Κράτηση</button>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Μενού">☰</button>
+</div></header>
+
+<section class="hero-wrap" id="top"><div class="wrap">
+  <div class="hero-card">
+    <div>
+      <p class="eyebrow">Brows &amp; Lashes Studio</p>
+      <h1>GALORE</h1>
+      <p class="hero-desc">Εξειδικευμένες υπηρεσίες περιποίησης και ομορφιάς για κάθε σας ανάγκη.</p>
+      <div class="hero-meta">
+        <span>★ (0 κριτικές)</span>
+        <span>📍 Διεύθυνση προς συμπλήρωση</span>
+        <span id="statusBadge">…</span>
+      </div>
+      <div class="hero-actions">
+        <button type="button" class="btn btn-fill" onclick="openBooking()">Κράτηση ραντεβού</button>
+        <a href="tel:+300000000000" class="btn btn-outline">+30 000 0000000</a>
+      </div>
+    </div>
+    <div class="hero-collage">
+      <div class="main-ph ph">Φωτογραφία 1
+        <div class="hero-avatar">G</div>
+      </div>
+      <div class="side-col">
+        <div class="ph">Φωτογραφία 2</div>
+        <div class="ph">Φωτογραφία 3</div>
+      </div>
+      <span class="photo-count">5 φωτογραφίες</span>
+    </div>
+  </div>
+</div></section>
+
+<nav class="subnav"><div class="wrap">
+  <a href="#services">Υπηρεσίες</a><a href="#team">Ομάδα</a><a href="#reviews">Κριτικές</a><a href="#gallery">Gallery</a><a href="#about">Σχετικά</a><a href="#location">Τοποθεσία</a>
+</div></nav>
+
+<section id="services"><div class="wrap services-layout">
+  <div>
+    <div class="section-head"><p class="eyebrow">Περιποίηση στα μέτρα σας</p><h2>Υπηρεσίες</h2></div>
+    <div class="tabs" id="serviceTabs"><span class="empty-slots">Φόρτωση…</span></div>
+    <div id="serviceList"></div>
+  </div>
+  <aside>
+    <div class="side-card">
+      <h3>GALORE</h3>
+      <p class="rating">★ (0 κριτικές)</p>
+      <button type="button" class="btn btn-fill" onclick="openBooking()">Κλείστε ραντεβού →</button>
+      <p class="fine-print">Χωρίς προπληρωμή · Δωρεάν ακύρωση έως 24ω πριν</p>
+    </div>
+    <div class="side-card" id="location">
+      <h3>Τοποθεσία</h3>
+      <div class="map-ph ph">⌖ Χάρτης</div>
+      <p style="font-size:13px">Διεύθυνση προς συμπλήρωση</p>
+      <p style="font-size:13px">☎ +30 000 0000000</p>
+    </div>
+    <div class="side-card">
+      <h3>Ωράριο λειτουργίας</h3>
+      <ul class="hours-list" id="hoursList"><li>Φόρτωση…</li></ul>
+    </div>
+  </aside>
+</div></section>
+
+<section id="team"><div class="wrap">
+  <div class="section-head"><p class="eyebrow">Οι επαγγελματίες μας</p><h2>Η ομάδα μας</h2></div>
+  <div class="team-card">
+    <div class="avatar-sq">G</div>
+    <div>
+      <h3>Specialist</h3>
+      <p class="role">Brows &amp; Lashes</p>
+      <p class="rating">★ 4,9</p>
+      <a href="#" class="book-link" onclick="openBooking();return false;">Κλείστε ραντεβού</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="reviews"><div class="wrap">
+  <div class="section-head"><p class="eyebrow">Εμπειρίες πελατών</p><h2>Κριτικές</h2></div>
+  <div class="empty-state">Δεν υπάρχουν ακόμη κριτικές.</div>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <div class="section-head"><p class="eyebrow">Γνωρίστε μας</p><h2>Σχετικά με εμάς</h2></div>
+  <div class="about-text">
+    <p>Το GALORE είναι ένα σύγχρονο ινστιτούτο ομορφιάς με εξειδίκευση στην περιποίηση, την ανάδειξη των φρυδιών και των βλεφαρίδων. Στόχος μας είναι να αναδεικνύουμε τα φυσικά χαρακτηριστικά κάθε προσώπου μέσα από προσεγμένες υπηρεσίες και τεχνικές που προσαρμόζονται στις ανάγκες και το προσωπικό στυλ κάθε πελάτη.</p>
+    <p>Στις υπηρεσίες μας περιλαμβάνονται σχηματισμός και καθαρισμός φρυδιών, βαφή φρυδιών, Brow Lamination / Brow Lift, Lash Lift, Korean Lash Lift, καθώς και συνδυαστικές υπηρεσίες Brow &amp; Lash Lift. Παράλληλα, προσφέρουμε περιποίηση προσώπου με αποτρίχωση μέσω κλωστής ή κεριού για ένα καθαρό και περιποιημένο αποτέλεσμα.</p>
+    <p>Δίνουμε ιδιαίτερη έμφαση στη λεπτομέρεια, στη σωστή εφαρμογή κάθε τεχνικής και στο φυσικό αποτέλεσμα, ώστε κάθε υπηρεσία να αναδεικνύει την ομορφιά του προσώπου χωρίς υπερβολές.</p>
+  </div>
+  <div class="amenities">
+    <span class="amenity"><span class="ic">📶</span> Δωρεάν Wi-Fi</span>
+    <span class="amenity"><span class="ic">♿</span> Πρόσβαση ΑμεΑ</span>
+    <span class="amenity"><span class="ic">💳</span> Πληρωμή με κάρτα</span>
+    <span class="amenity"><span class="ic">❄️</span> Κλιματισμός</span>
+  </div>
+</div></section>
+
+<section id="gallery"><div class="wrap">
+  <div class="section-head"><p class="eyebrow">Δημιουργίες &amp; αποτελέσματα</p><h2>Gallery &amp; Αποτελέσματα</h2><p style="color:var(--text-muted);font-size:14px">Δείτε δείγματα από τις πρόσφατες περιποιήσεις και υπηρεσίες μας</p></div>
+
+  <div class="gallery-group">
+    <h3>Brow Lamination / Brow Lift χωρίς Βαφή</h3>
+    <div class="gallery-row"><div class="ph">1</div><div class="ph">2</div><div class="ph">3</div><div class="ph">4</div></div>
+    <div class="gallery-caption"><span>Δείτε περισσότερα (4)</span><button type="button" class="btn btn-fill btn-sm" onclick="openBooking()">Κλείστε ραντεβού →</button></div>
+  </div>
+  <div class="gallery-group">
+    <h3>Korean Lash Lift &amp; Βαφή</h3>
+    <div class="gallery-row"><div class="ph">1</div><div class="ph">2</div><div class="ph">3</div></div>
+    <div class="gallery-caption"><span>Δείτε περισσότερα (3)</span><button type="button" class="btn btn-fill btn-sm" onclick="openBooking()">Κλείστε ραντεβού →</button></div>
+  </div>
+  <div class="gallery-group">
+    <h3>Lash Lift &amp; Βαφή</h3>
+    <div class="gallery-row"><div class="ph">1</div><div class="ph">2</div><div class="ph">3</div><div class="ph">4</div></div>
+    <div class="gallery-caption"><span>Δείτε περισσότερα (4)</span><button type="button" class="btn btn-fill btn-sm" onclick="openBooking()">Κλείστε ραντεβού →</button></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="footer-grid">
+    <div><a class="logo" href="#top">galore</a><p style="margin-top:12px;max-width:300px;color:var(--text-muted);font-size:13.5px">Εξειδικευμένες υπηρεσίες περιποίησης και ομορφιάς για κάθε σας ανάγκη.</p></div>
+    <div><h4>Γρήγορη πλοήγηση</h4><ul><li><a href="#services">Υπηρεσίες</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#about">Σχετικά με εμάς</a></li><li><a href="#reviews">Κριτικές</a></li><li><a href="#location">Τοποθεσία &amp; Ωράριο</a></li></ul></div>
+    <div><h4>Επικοινωνία</h4><ul><li>Διεύθυνση προς συμπλήρωση</li><li><a href="tel:+300000000000">+30 000 0000000</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">© 2026 GALORE. Όλα τα δικαιώματα διατηρούνται.</div>
+</div></footer>
+
+<dialog id="bookingDialog">
+  <form class="booking-form" id="bookingForm">
+    <button type="button" class="dialog-close" id="dialogClose" aria-label="Κλείσιμο">×</button>
+    <div class="booking-steps" id="bookingSteps">
+      <span class="step" data-step="1">1. Υπηρεσία</span>
+      <span class="step" data-step="2">2. Ημερομηνία &amp; ώρα</span>
+      <span class="step" data-step="3">3. Στοιχεία</span>
+      <span class="step" data-step="4">4. Επιβεβαίωση</span>
+    </div>
+
+    <div class="booking-panel" data-panel="1">
+      <h3>Επιλέξτε υπηρεσία</h3>
+      <div class="tabs" id="bkTabs"></div>
+      <div class="booking-service-list" id="bkServiceList"></div>
+    </div>
+
+    <div class="booking-panel" data-panel="2" hidden>
+      <h3>Επιλέξτε ημερομηνία &amp; ώρα</h3>
+      <label class="field-label">Ημερομηνία<input type="date" id="bkDate" required></label>
+      <div class="time-slots" id="bkSlots"></div>
+    </div>
+
+    <div class="booking-panel" data-panel="3" hidden>
+      <h3>Στοιχεία πελάτη</h3>
+      <div class="field-grid">
+        <label class="field-label">Όνομα<input type="text" id="bkFirst" required></label>
+        <label class="field-label">Επώνυμο<input type="text" id="bkLast" required></label>
+        <label class="field-label">Email<input type="email" id="bkEmail" required></label>
+        <label class="field-label">Τηλέφωνο<input type="tel" id="bkPhone" required></label>
+      </div>
+      <label class="field-label">Σχόλιο (προαιρετικό)<textarea id="bkNote" rows="3"></textarea></label>
+    </div>
+
+    <div class="booking-panel" data-panel="4" hidden>
+      <h3>Επιβεβαίωση κράτησης</h3>
+      <div class="summary-card" id="bkSummary"></div>
+      <p class="fine-print" style="margin-top:10px">Χωρίς προπληρωμή · Δωρεάν ακύρωση έως 24ω πριν</p>
+    </div>
+
+    <div class="booking-panel" data-panel="5" hidden>
+      <div class="thank-you">
+        <h3>Ευχαριστούμε!</h3>
+        <p>Η κράτησή σας καταχωρήθηκε. Θα λάβετε επιβεβαίωση στο email σας.</p>
+      </div>
+    </div>
+
+    <p class="form-error" id="bkError" hidden></p>
+    <div class="booking-actions">
+      <button type="button" class="btn btn-outline" id="bkBack">Πίσω</button>
+      <button type="button" class="btn btn-fill" id="bkNext">Επόμενο</button>
+    </div>
+  </form>
+</dialog>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+const supabase = createClient(
+  'https://osmarccznvpmfwkhyynu.supabase.co',
+  'sb_publishable_YbzvUYpwaN6r3vM3a9JAAg_k-1XYLXT'
+);
+
+const DAY_NAMES = ['Κυριακή','Δευτέρα','Τρίτη','Τετάρτη','Πέμπτη','Παρασκευή','Σάββατο'];
+const DISPLAY_ORDER = [1,2,3,4,5,6,0]; // Δευτέρα .. Κυριακή
+
+let CATEGORIES = [];
+let SERVICES = [];
+let HOURS = {}; // weekday(0-6) -> {open_time, close_time} | undefined = closed
+
+function euro(n){ return '€' + Number(n).toFixed(2); }
+function timeLabel(t){ return t.slice(0,5); } // "10:00:00" -> "10:00"
+
+async function loadData(){
+  const [{ data: cats }, { data: svcs }, { data: hrs }] = await Promise.all([
+    supabase.from('service_categories').select('*').order('order_number'),
+    supabase.from('services').select('*').eq('is_active', true).order('order_number'),
+    supabase.from('business_hours').select('*'),
+  ]);
+  CATEGORIES = cats || [];
+  SERVICES = svcs || [];
+  HOURS = {};
+  (hrs || []).forEach(h => { HOURS[h.weekday] = h; });
+
+  renderTabs();
+  renderServiceList('all');
+  renderHours();
+  renderStatusBadge();
+}
+
+function renderTabs(){
+  const el = document.getElementById('serviceTabs');
+  const all = [{ id: 'all', name: 'Όλα' }, ...CATEGORIES];
+  el.innerHTML = all.map(c => `<button type="button" class="tab${c.id==='all'?' active':''}" data-cat="${c.id}">${c.name}</button>`).join('');
+  el.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
+    el.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    renderServiceList(btn.dataset.cat);
+  }));
+}
+
+function renderServiceList(catFilter){
+  const el = document.getElementById('serviceList');
+  const list = catFilter === 'all' ? SERVICES : SERVICES.filter(s => String(s.category_id) === String(catFilter));
+  el.innerHTML = list.map(s => `
+    <div class="service-row">
+      <div class="service-info">
+        <h3>${s.name}</h3>
+        ${s.description ? `<details><summary>Περισσότερα ⌄</summary><p>${s.description}</p></details>` : ''}
+        <div class="service-meta">◷ ${s.duration_minutes} λεπτά &nbsp; <b>${euro(s.price)}</b></div>
+      </div>
+      <button type="button" class="btn btn-outline btn-sm" onclick="openBooking(${s.id})">📅 Κράτηση</button>
+    </div>
+  `).join('');
+}
+
+function renderHours(){
+  const el = document.getElementById('hoursList');
+  el.innerHTML = DISPLAY_ORDER.map(day => {
+    const h = HOURS[day];
+    return `<li><span>${DAY_NAMES[day]}</span><b>${h ? timeLabel(h.open_time) + ' – ' + timeLabel(h.close_time) : 'Κλειστά'}</b></li>`;
+  }).join('');
+}
+
+function renderStatusBadge(){
+  const el = document.getElementById('statusBadge');
+  const now = new Date();
+  const today = HOURS[now.getDay()];
+  const hhmm = now.getHours() * 60 + now.getMinutes();
+  if (today) {
+    const [oh, om] = today.open_time.split(':').map(Number);
+    const [ch, cm] = today.close_time.split(':').map(Number);
+    if (hhmm >= oh * 60 + om && hhmm < ch * 60 + cm) {
+      el.textContent = `Ανοιχτά · κλείνει ${timeLabel(today.close_time)}`;
+      return;
+    }
+  }
+  for (let i = 1; i <= 7; i++) {
+    const d = new Date(now); d.setDate(now.getDate() + i);
+    const h = HOURS[d.getDay()];
+    if (h) {
+      const label = i === 1 ? 'αύριο' : DAY_NAMES[d.getDay()];
+      el.textContent = `Κλειστά · ανοίγει ${label} ${timeLabel(h.open_time)}`;
+      return;
+    }
+  }
+  el.textContent = 'Κλειστά';
+}
+
+// ---- booking dialog ----
+let booking = { step: 1, service: null, date: '', time: '' };
+
+window.openBooking = function(serviceId){
+  booking = { step: 1, service: serviceId ? SERVICES.find(s => s.id === serviceId) : null, date: '', time: '' };
+  renderBkTabs('all');
+  renderBkServiceList('all', serviceId);
+  goToStep(1);
+  document.getElementById('bookingDialog').showModal();
+};
+
+function renderBkTabs(active){
+  const el = document.getElementById('bkTabs');
+  const all = [{ id: 'all', name: 'Όλα' }, ...CATEGORIES];
+  el.innerHTML = all.map(c => `<button type="button" class="tab${String(c.id)===String(active)?' active':''}" data-cat="${c.id}">${c.name}</button>`).join('');
+  el.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
+    renderBkTabs(btn.dataset.cat);
+    renderBkServiceList(btn.dataset.cat);
+  }));
+}
+
+function renderBkServiceList(catFilter, preselectId){
+  const list = catFilter === 'all' ? SERVICES : SERVICES.filter(s => String(s.category_id) === String(catFilter));
+  const el = document.getElementById('bkServiceList');
+  el.innerHTML = list.map(s => `
+    <label class="service-pick">
+      <input type="radio" name="bkService" value="${s.id}" ${ (preselectId ? s.id === preselectId : booking.service && booking.service.id === s.id) ? 'checked' : '' }>
+      <span>${s.name}</span>
+      <span class="service-pick-meta">◷ ${s.duration_minutes}' · ${euro(s.price)}</span>
+    </label>
+  `).join('');
+  el.querySelectorAll('input[name=bkService]').forEach(r => r.addEventListener('change', () => {
+    booking.service = SERVICES.find(s => s.id === Number(r.value));
+  }));
+}
+
+function goToStep(n){
+  booking.step = n;
+  document.querySelectorAll('.booking-panel').forEach(p => p.hidden = Number(p.dataset.panel) !== n);
+  document.querySelectorAll('#bookingSteps .step').forEach(s => s.classList.toggle('active', Number(s.dataset.step) === n));
+  document.getElementById('bookingSteps').style.display = n === 5 ? 'none' : 'flex';
+  document.getElementById('bkBack').style.visibility = (n <= 1 || n === 5) ? 'hidden' : 'visible';
+  const nextBtn = document.getElementById('bkNext');
+  nextBtn.textContent = n === 4 ? 'Κράτηση' : (n === 5 ? 'Κλείσιμο' : 'Επόμενο');
+  showError('');
+  if (n === 2) renderSlots();
+  if (n === 4) renderSummary();
+}
+
+function showError(msg){
+  const el = document.getElementById('bkError');
+  el.textContent = msg;
+  el.hidden = !msg;
+}
+
+async function renderSlots(){
+  const dateInput = document.getElementById('bkDate');
+  const today = new Date(); today.setHours(0,0,0,0);
+  dateInput.min = today.toISOString().slice(0,10);
+  const el = document.getElementById('bkSlots');
+  if (!dateInput.value) { el.innerHTML = ''; return; }
+  const d = new Date(dateInput.value + 'T00:00:00');
+  const hrs = HOURS[d.getDay()];
+  if (!hrs) { el.innerHTML = '<p class="empty-slots">Κλειστά αυτή την ημέρα.</p>'; return; }
+
+  el.innerHTML = '<p class="empty-slots">Έλεγχος διαθεσιμότητας…</p>';
+  // ponytail: blocks any exact-time match already booked that day (any service, one specialist),
+  // not a full interval/duration overlap check — add proper overlap math if double-bookings show up.
+  const { data: taken } = await supabase
+    .from('public_booking_slots')
+    .select('booking_time')
+    .eq('booking_date', dateInput.value);
+  const takenTimes = new Set((taken || []).map(t => t.booking_time.slice(0,5)));
+
+  const [oh, om] = hrs.open_time.split(':').map(Number);
+  const [ch, cm] = hrs.close_time.split(':').map(Number);
+  let cur = oh * 60 + om, end = ch * 60 + cm;
+  const slots = [];
+  while (cur < end) {
+    const t = String(Math.floor(cur/60)).padStart(2,'0') + ':' + String(cur%60).padStart(2,'0');
+    if (!takenTimes.has(t)) slots.push(t);
+    cur += 30;
+  }
+  if (!slots.length) { el.innerHTML = '<p class="empty-slots">Δεν υπάρχουν διαθέσιμες ώρες αυτή την ημέρα.</p>'; return; }
+  el.innerHTML = slots.map(t => `<button type="button" class="slot${booking.time===t?' active':''}" data-t="${t}">${t}</button>`).join('');
+  el.querySelectorAll('.slot').forEach(b => b.addEventListener('click', () => {
+    booking.time = b.dataset.t;
+    el.querySelectorAll('.slot').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+  }));
+}
+document.getElementById('bkDate').addEventListener('change', renderSlots);
+
+function renderSummary(){
+  const s = booking.service;
+  document.getElementById('bkSummary').innerHTML = `
+    <p><b>Υπηρεσία:</b> ${s ? s.name : '—'}</p>
+    <p><b>Ημερομηνία:</b> ${booking.date || '—'}</p>
+    <p><b>Ώρα:</b> ${booking.time || '—'}</p>
+    <p><b>Πελάτης:</b> ${booking.first || ''} ${booking.last || ''}</p>
+    <p><b>Email:</b> ${booking.email || '—'}</p>
+    <p><b>Τηλέφωνο:</b> ${booking.phone || '—'}</p>
+    ${s ? `<p class="summary-price"><b>Σύνολο:</b> ${euro(s.price)}</p>` : ''}
+  `;
+}
+
+document.getElementById('bkNext').addEventListener('click', async () => {
+  const n = booking.step;
+  if (n === 1) {
+    if (!booking.service) return showError('Επιλέξτε υπηρεσία.');
+  }
+  if (n === 2) {
+    booking.date = document.getElementById('bkDate').value;
+    if (!booking.date || !booking.time) return showError('Επιλέξτε ημερομηνία και ώρα.');
+  }
+  if (n === 3) {
+    const v = id => document.getElementById(id).value.trim();
+    booking.first = v('bkFirst'); booking.last = v('bkLast'); booking.email = v('bkEmail'); booking.phone = v('bkPhone'); booking.note = v('bkNote');
+    if (!booking.first || !booking.last || !booking.email || !booking.phone) return showError('Συμπληρώστε όλα τα υποχρεωτικά πεδία.');
+  }
+  if (n === 4) {
+    document.getElementById('bkNext').disabled = true;
+    const { error } = await supabase.from('bookings').insert({
+      service_id: booking.service.id,
+      first_name: booking.first,
+      last_name: booking.last,
+      email: booking.email,
+      phone: booking.phone,
+      note: booking.note || '',
+      booking_date: booking.date,
+      booking_time: booking.time,
+    });
+    document.getElementById('bkNext').disabled = false;
+    if (error) return showError('Κάτι πήγε στραβά, δοκιμάστε ξανά.');
+    goToStep(5);
+    return;
+  }
+  if (n === 5) { document.getElementById('bookingDialog').close(); return; }
+  goToStep(n + 1);
+});
+
+document.getElementById('bkBack').addEventListener('click', () => {
+  if (booking.step > 1 && booking.step < 5) goToStep(booking.step - 1);
+});
+document.getElementById('dialogClose').addEventListener('click', () => document.getElementById('bookingDialog').close());
+document.getElementById('bookingDialog').addEventListener('click', (e) => {
+  if (e.target.id === 'bookingDialog') document.getElementById('bookingDialog').close();
+});
+document.getElementById('bookingForm').addEventListener('submit', e => e.preventDefault());
+
+document.getElementById('navToggle').addEventListener('click', () => {
+  document.getElementById('mainNav').classList.toggle('open');
+});
+
+loadData();
+</script>
+</body>
+</html>
