@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#FAF8F5">
+<meta name="theme-color" content="#F7F1E8">
 <title>GALORE — Nail Studio</title>
 <meta name="description" content="GALORE Nail Studio by Mariza — μανικιούρ, πεντικιούρ, ημιμόνιμο, Acrygel, nail art και βλεφαρίδες/φρύδια.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+Display:wght@500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --maroon:#440B0B; --slate:#7C85A3; --bg:#FAF8F5; --card:#FFFFFF;
-  --text:#2A2523; --text-muted:#6B7280; --line:#E9E3DD; --radius:14px; --radius-lg:28px; --pill:999px;
+  --maroon:#7E1628; --gold:#7A5C32; --bg:#F7F1E8; --card:#FFFFFF;
+  --text:#2A2523; --text-muted:#6E625A; --line:#E7DCCB; --radius:14px; --radius-lg:28px; --pill:999px;
+  --serif:'Noto Serif Display',Georgia,serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
@@ -28,13 +29,14 @@ button,a,[role="button"]{touch-action:manipulation}
   .team-card .book-link:hover{opacity:.8}
 }
 h1,h2,h3{font-family:inherit;color:var(--maroon);margin:0;font-weight:800}
+h1,h2{font-family:var(--serif);font-weight:600;letter-spacing:.01em}
 h1{font-size:clamp(30px,4.4vw,44px);line-height:1.05}
 h2{font-size:clamp(24px,3.2vw,32px)}
 h3{font-size:16px;font-weight:700;color:var(--text)}
 p{margin:0 0 10px}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-.eyebrow{letter-spacing:.1em;text-transform:uppercase;font-size:11px;font-weight:700;color:var(--slate);margin-bottom:8px}
+.eyebrow{letter-spacing:.1em;text-transform:uppercase;font-size:11px;font-weight:700;color:var(--gold);margin-bottom:8px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:var(--pill);font-weight:700;font-size:13.5px;border:1px solid transparent;cursor:pointer;white-space:nowrap}
 .btn-fill{background:var(--maroon);color:#fff}
 .btn-outline{background:#fff;color:var(--maroon);border-color:var(--line)}
@@ -43,7 +45,9 @@ a{color:inherit;text-decoration:none}
 /* header */
 .site-header{padding:18px 0}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:21px;font-weight:800;color:var(--maroon);letter-spacing:.02em;text-transform:lowercase}
+.logo{display:inline-flex;align-items:center;gap:10px;font-family:var(--serif);font-size:19px;font-weight:600;color:var(--maroon);letter-spacing:.08em}
+.logo img{width:40px;height:40px}
+.logo img,.hero-avatar img{clip-path:circle(48%)} /* trims the PNG's rough outer edge */
 .main-nav{display:flex;align-items:center;gap:26px;font-weight:600;font-size:14px}
 .nav-toggle{display:none;background:none;border:none;font-size:22px;color:var(--maroon);cursor:pointer}
 @media (max-width:860px){
@@ -54,8 +58,8 @@ a{color:inherit;text-decoration:none}
 
 /* hero */
 .hero-wrap{padding-bottom:36px}
-.hero-card{background:var(--card);border-radius:var(--radius-lg);box-shadow:0 30px 60px -20px rgba(68,11,11,.15);padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-@media (max-width:720px){.hero-card{grid-template-columns:1fr;padding:24px;border-radius:20px}.hero-collage{height:220px}}
+.hero-card{background:var(--card);border-radius:var(--radius-lg);box-shadow:0 30px 60px -20px rgba(126,22,40,.15);padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media (max-width:720px){.hero-card{grid-template-columns:1fr;padding:24px;border-radius:20px}.hero-collage{height:220px;order:-1}}
 .hero-desc{font-size:15.5px;color:var(--text-muted);max-width:420px}
 .hero-meta{display:flex;flex-wrap:wrap;gap:14px 20px;margin:16px 0;font-size:13px;color:var(--text-muted)}
 .hero-meta span{display:inline-flex;align-items:center;gap:6px}
@@ -64,9 +68,10 @@ a{color:inherit;text-decoration:none}
 .hero-collage .main-ph{position:relative;border-radius:20px}
 .hero-collage .side-col{display:flex;flex-direction:column;gap:10px}
 .hero-collage .side-col .ph{flex:1;border-radius:16px}
-.hero-avatar{position:absolute;left:-14px;bottom:-14px;width:78px;height:78px;border-radius:50%;border:4px solid #fff;background:linear-gradient(135deg,#EDE3DD,#F6EFE8);display:flex;align-items:center;justify-content:center;color:var(--slate);font-weight:800}
+.hero-avatar{position:absolute;left:-14px;bottom:-14px;width:78px;height:78px;border-radius:50%;border:4px solid #fff;background:#fff}
+.hero-avatar img{width:100%;height:100%;display:block}
 .photo-count{position:absolute;right:10px;bottom:10px;background:#fff;border-radius:var(--pill);padding:5px 12px;font-size:11px;font-weight:700;color:var(--maroon);box-shadow:0 4px 10px rgba(0,0,0,.1)}
-.ph{background:linear-gradient(135deg,#EDE3DD,#F6EFE8);display:flex;align-items:center;justify-content:center;color:var(--slate);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line)}
+.ph{background:linear-gradient(135deg,#EDE3DD,#F6EFE8);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line)}
 
 /* subnav */
 .subnav{border-bottom:1px solid var(--line)}
@@ -104,7 +109,7 @@ section{padding:56px 0}
 
 /* team */
 .team-card{display:flex;gap:14px;align-items:center;max-width:340px}
-.avatar-sq{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,#EDE3DD,#F6EFE8);display:flex;align-items:center;justify-content:center;color:var(--slate);font-weight:800;flex-shrink:0}
+.avatar-sq{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,#EDE3DD,#F6EFE8);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:800;flex-shrink:0}
 .team-card .role{color:var(--text-muted);font-size:13px}
 .team-card .rating{font-size:13px;color:var(--maroon);font-weight:700;margin:4px 0}
 .team-card .book-link{font-size:13px;font-weight:700;color:var(--maroon);text-decoration:underline}
@@ -115,7 +120,7 @@ section{padding:56px 0}
 .about-text{max-width:680px;font-size:14.5px;color:var(--text-muted)}
 .amenities{display:flex;flex-wrap:wrap;gap:22px;margin-top:22px}
 .amenity{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--text);font-weight:600}
-.amenity .ic{color:var(--slate);font-size:16px}
+.amenity .ic{color:var(--gold);font-size:16px}
 
 /* gallery */
 .gallery-group{margin-bottom:36px}
@@ -129,12 +134,12 @@ section{padding:56px 0}
 footer{border-top:1px solid var(--line);padding:48px 0 24px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
 @media (max-width:700px){.footer-grid{grid-template-columns:1fr}}
-footer h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--slate);margin-bottom:14px}
+footer h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin-bottom:14px}
 footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:13.5px;color:var(--text-muted)}
 .footer-bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:18px;font-size:12.5px;color:var(--text-muted)}
 
 /* booking dialog */
-dialog#bookingDialog{position:relative;border:none;border-radius:20px;padding:0;width:min(540px,92vw);max-height:88dvh;box-shadow:0 20px 60px rgba(68,11,11,.25)}
+dialog#bookingDialog{position:relative;border:none;border-radius:20px;padding:0;width:min(540px,92vw);max-height:88dvh;box-shadow:0 20px 60px rgba(126,22,40,.25)}
 dialog#bookingDialog::backdrop{background:rgba(42,37,35,.55)}
 .booking-form{display:flex;flex-direction:column;max-height:88dvh;margin:0}
 .dialog-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;color:var(--text-muted);cursor:pointer;line-height:1}
@@ -162,12 +167,19 @@ dialog#bookingDialog::backdrop{background:rgba(42,37,35,.55)}
 .thank-you{text-align:center;padding:20px 0}
 .booking-actions{display:flex;justify-content:space-between;gap:12px;padding:18px 26px;border-top:1px solid var(--line)}
 .form-error{color:#B3261E;font-size:12.5px;margin:-6px 0 12px}
+
+/* mobile sticky booking button */
+.mobile-cta{display:none}
+@media (max-width:720px){
+  .mobile-cta{display:flex;position:fixed;left:16px;right:16px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:50;padding:15px 22px;font-size:15px;box-shadow:0 10px 30px rgba(126,22,40,.3)}
+  body{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+}
 </style>
 </head>
 <body>
 
 <header class="site-header"><div class="wrap header-inner">
-  <a class="logo" href="#top">galore</a>
+  <a class="logo" href="#top"><img src="logo.png" alt="">GALORE</a>
   <nav class="main-nav" id="mainNav">
     <a href="#services">Υπηρεσίες</a>
     <a href="#team">Ομάδα</a>
@@ -184,7 +196,6 @@ dialog#bookingDialog::backdrop{background:rgba(42,37,35,.55)}
       <h1>GALORE</h1>
       <p class="hero-desc">Μανικιούρ, πεντικιούρ, ημιμόνιμο, Acrygel & nail art — φροντίδα νυχιών με προσοχή στη λεπτομέρεια.</p>
       <div class="hero-meta">
-        <span>★ (0 κριτικές)</span>
         <span>📍 Διεύθυνση προς συμπλήρωση</span>
         <span id="statusBadge">…</span>
       </div>
@@ -195,7 +206,7 @@ dialog#bookingDialog::backdrop{background:rgba(42,37,35,.55)}
     </div>
     <div class="hero-collage">
       <div class="main-ph ph">Φωτογραφία 1
-        <div class="hero-avatar">G</div>
+        <div class="hero-avatar"><img src="logo.png" alt=""></div>
       </div>
       <div class="side-col">
         <div class="ph">Φωτογραφία 2</div>
@@ -207,7 +218,7 @@ dialog#bookingDialog::backdrop{background:rgba(42,37,35,.55)}
 </div></section>
 
 <nav class="subnav"><div class="wrap">
-  <a href="#services">Υπηρεσίες</a><a href="#team">Ομάδα</a><a href="#reviews">Κριτικές</a><a href="#gallery">Gallery</a><a href="#about">Σχετικά</a><a href="#location">Τοποθεσία</a>
+  <a href="#services">Υπηρεσίες</a><a href="#team">Ομάδα</a><a href="#gallery">Gallery</a><a href="#about">Σχετικά</a><a href="#location">Τοποθεσία</a>
 </div></nav>
 
 <section id="services"><div class="wrap services-layout">
@@ -219,7 +230,6 @@ dialog#bookingDialog::backdrop{background:rgba(42,37,35,.55)}
   <aside>
     <div class="side-card">
       <h3>GALORE</h3>
-      <p class="rating">★ (0 κριτικές)</p>
       <button type="button" class="btn btn-fill" onclick="openBooking()">Κλείστε ραντεβού →</button>
       <p class="fine-print">Χωρίς προπληρωμή · Δωρεάν ακύρωση έως 24ω πριν</p>
     </div>
@@ -243,15 +253,9 @@ dialog#bookingDialog::backdrop{background:rgba(42,37,35,.55)}
     <div>
       <h3>Mariza</h3>
       <p class="role">Nail Artist</p>
-      <p class="rating">★ 4,9</p>
       <a href="#" class="book-link" onclick="openBooking();return false;">Κλείστε ραντεβού</a>
     </div>
   </div>
-</div></section>
-
-<section id="reviews"><div class="wrap">
-  <div class="section-head"><p class="eyebrow">Εμπειρίες πελατών</p><h2>Κριτικές</h2></div>
-  <div class="empty-state">Δεν υπάρχουν ακόμη κριτικές.</div>
 </div></section>
 
 <section id="about"><div class="wrap">
@@ -291,12 +295,14 @@ dialog#bookingDialog::backdrop{background:rgba(42,37,35,.55)}
 
 <footer><div class="wrap">
   <div class="footer-grid">
-    <div><a class="logo" href="#top">galore</a><p style="margin-top:12px;max-width:300px;color:var(--text-muted);font-size:13.5px">Μανικιούρ, πεντικιούρ, ημιμόνιμο, Acrygel & nail art — φροντίδα νυχιών με προσοχή στη λεπτομέρεια.</p></div>
-    <div><h4>Γρήγορη πλοήγηση</h4><ul><li><a href="#services">Υπηρεσίες</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#about">Σχετικά με εμάς</a></li><li><a href="#reviews">Κριτικές</a></li><li><a href="#location">Τοποθεσία &amp; Ωράριο</a></li></ul></div>
+    <div><a class="logo" href="#top"><img src="logo.png" alt="">GALORE</a><p style="margin-top:12px;max-width:300px;color:var(--text-muted);font-size:13.5px">Μανικιούρ, πεντικιούρ, ημιμόνιμο, Acrygel & nail art — φροντίδα νυχιών με προσοχή στη λεπτομέρεια.</p></div>
+    <div><h4>Γρήγορη πλοήγηση</h4><ul><li><a href="#services">Υπηρεσίες</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#about">Σχετικά με εμάς</a></li><li><a href="#location">Τοποθεσία &amp; Ωράριο</a></li></ul></div>
     <div><h4>Επικοινωνία</h4><ul><li>Διεύθυνση προς συμπλήρωση</li><li><a href="tel:+300000000000">+30 000 0000000</a></li></ul></div>
   </div>
   <div class="footer-bottom">© 2026 GALORE. Όλα τα δικαιώματα διατηρούνται.</div>
 </div></footer>
+
+<button type="button" class="btn btn-fill mobile-cta" onclick="openBooking()">Κλείστε ραντεβού</button>
 
 <dialog id="bookingDialog">
   <form class="booking-form" id="bookingForm">
@@ -371,11 +377,21 @@ function euro(n){ return Number(n) === 0 ? 'Κατόπιν επικοινωνί�
 function timeLabel(t){ return t.slice(0,5); } // "10:00:00" -> "10:00"
 
 async function loadData(){
-  const [{ data: cats }, { data: svcs }, { data: hrs }] = await Promise.all([
+  const res = await Promise.all([
     supabase.from('service_categories').select('*').order('order_number'),
     supabase.from('services').select('*').eq('is_active', true).order('order_number'),
     supabase.from('business_hours').select('*'),
   ]);
+  const failed = res.find(r => r.error);
+  if (failed) {
+    // e.g. Supabase project paused: show a way to book instead of "Φόρτωση…" forever
+    console.error(failed.error);
+    document.getElementById('serviceTabs').innerHTML = '<p class="empty-state">Οι υπηρεσίες δεν φόρτωσαν. Καλέστε μας για ραντεβού.</p>';
+    document.getElementById('hoursList').innerHTML = '<li>Καλέστε μας για το ωράριο.</li>';
+    document.getElementById('statusBadge').textContent = '';
+    return;
+  }
+  const [{ data: cats }, { data: svcs }, { data: hrs }] = res;
   CATEGORIES = cats || [];
   SERVICES = svcs || [];
   HOURS = {};
